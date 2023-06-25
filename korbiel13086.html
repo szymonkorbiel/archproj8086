@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body{
+            font-family:sans-serif;
+            font-weight: bold;
+            width:100%;
+            height:100%;
+        }
+        .bt{
+            color:white;
+            background:black;
+            margin:10px;
+            padding:5px;
+        }
+        #glowny{
+            width: 40%;
+            height: 50%;
+            border: 1px solid black;
+        }
+        #rejestry{
+            width:30%;
+            height:500px;
+            float:left;
+            padding: 50px;
+        }
+        #przyciski{
+            width:35%;
+            height:500px;
+            float:left;
+        }
+        .rejestr{
+            width: 40px;
+            margin: 10px;
+            text-align: center;
+        }
+        label{
+            margin-left: 10px;   
+        }
+        p{
+            margin: 10px;
+        }
+        .opis{
+            margin:0 px;
+        }
+    </style>
+</head>
+<body>
+            <h3>Symulator procesora Intel 8086</h3>
+    <div id="glowny">
+    <div id="rejestry">
+        <form>
+            <span class="opis">AX</span>
+            <input type="text" id="ax1" class="rejestr"><br>
+            <span class="opis">BX</span>
+            <input type="text" id="bx1" class="rejestr"><br>
+            <span class="opis">CX</span>
+            <input type="text" id="cx1" class="rejestr"><br>
+            <span class="opis">DX</span>
+            <input type="text" id="dx1" class="rejestr">
+        </form>
+    </div>
+    <div id="przyciski">
+        <form>
+        <br><br>
+            <input type="button" value="WYLOSUJ" onclick="randoms()" class="bt"><br> 
+            <label>from:</label>
+                <select id="from1">
+                    <option value="ax">AX</option>
+                    <option value="bx">BX</option>
+                    <option value="cx">CX</option>
+                    <option value="dx">DX</option>
+                </select>
+            <br><br>
+            <label>to:&nbsp;&nbsp;</label>
+                <select id="to1">
+                    <option value="ax">AX</option>
+                    <option value="bx">BX</option>
+                    <option value="cx">CX</option>
+                    <option value="dx">DX</option>
+                </select>
+        <br><br>
+    <input type="button" value="wykonaj MOV" onclick="MOV(); hexdec()" class="bt"><br>        
+    <input type="button" value="wykonaj XCHG" onclick="XCHG()" class="bt">   
+</form>
+    </div>
+    <script>
+    function randoms(){
+        const getrand=size=>{
+        var res=[];
+        var tab=['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'];
+        for (var x=0; x<size; x++) {
+            res.push(tab[Math.floor(Math.random()*16)]);
+        }
+        return res.join('');
+        }
+        document.getElementById("ax1").value=getrand(4);
+        document.getElementById("bx1").value=getrand(4);
+        document.getElementById("cx1").value=getrand(4);
+        document.getElementById("dx1").value=getrand(4);
+    }
+        
+    function MOV(){
+            var from1=document.getElementById("from1").value;
+            var to1=document.getElementById("to1").value;
+            var ax=document.getElementById("ax1").value;
+            var bx=document.getElementById("bx1").value;
+            var cx=document.getElementById("cx1").value;
+            var dx=document.getElementById("dx1").value;
+            if(from1=="ax"&&to1=="ax"){
+                alert("te same rejestry!");
+            }
+            else if(from1=="bx"&&to1=="bx"){
+                alert("te same rejestry!");
+            }
+            else if(from1=="bx"&&to1=="bx"){
+                alert("te same rejestry!");
+            }
+            else if(from1=="cx"&&to1=="cx"){
+                alert("te same rejestry!");
+            }
+            else if(from1=="dx"&&to1=="dx"){
+                alert("te same rejestry!");
+            }
+            else if(from1=="ax"&&to1=="bx"){
+                document.getElementById("bx1").value=ax;
+            }
+            else if(from1=="ax"&&to1=="cx"){
+                document.getElementById("cx1").value=ax;
+            }
+            else if(from1=="ax"&&to1=="dx"){
+                document.getElementById("dx1").value=ax;
+            }
+            else if(from1=="bx"&&to1=="ax"){
+                document.getElementById("ax1").value=bx;
+            }
+            else if(from1=="bx"&&to1=="cx"){
+                document.getElementById("cx1").value=bx;
+            }
+            else if(from1=="bx"&&to1=="dx"){
+                document.getElementById("dx1").value=bx;
+            }
+            else if(from1=="cx"&&to1=="ax"){
+                document.getElementById("ax1").value=cx;
+            }
+            else if(from1=="cx"&&to1=="bx"){
+                document.getElementById("bx1").value=cx;
+            }
+            else if(from1=="cx"&&to1=="dx"){
+                document.getElementById("dx1").value=cx;
+            }
+            else if(from1=="dx"&&to1=="ax"){
+                document.getElementById("ax1").value=dx;
+            }
+            else if(from1=="dx"&&to1=="bx"){
+                document.getElementById("bx1").value=dx;
+            }
+            else if(from1=="dx"&&to1=="cx"){
+                document.getElementById("cx1").value=dx;
+            }         
+    }
+    function XCHG(){
+            var from1=document.getElementById("from1").value;
+            var to1=document.getElementById("to1").value;
+            var ax=document.getElementById("ax1").value;
+            var bx=document.getElementById("bx1").value;
+            var cx=document.getElementById("cx1").value;
+            var dx=document.getElementById("dx1").value;
+            if(from1=="ax"&&to1=="ax"){
+                alert("te same rejestry!");
+            }
+            else if(from1=="bx"&&to1=="bx"){
+                alert("te same rejestry!");
+            }
+            else if(from1=="bx"&&to1=="bx"){
+                alert("te same rejestry!");
+            }
+            else if(from1=="cx"&&to1=="cx"){
+                alert("te same rejestry!");
+            }
+            else if(from1=="dx"&&to1=="dx"){
+                alert("te same rejestry!");
+            }
+        
+            else if(from1=="ax"&&to1=="bx"){
+                document.getElementById("bx1").value=ax;
+                document.getElementById("ax1").value=bx;
+            }
+            else if(from1=="ax"&&to1=="cx"){
+                document.getElementById("cx1").value=ax;
+                document.getElementById("ax1").value=cx;
+            }
+            else if(from1=="ax"&&to1=="dx"){
+                document.getElementById("dx1").value=ax;
+                document.getElementById("ax1").value=dx;
+            }
+            else if(from1=="bx"&&to1=="ax"){
+                document.getElementById("bx1").value=ax;
+                document.getElementById("ax1").value=bx;
+            }
+            else if(from1=="bx"&&to1=="cx"){
+                document.getElementById("bx1").value=cx;
+                document.getElementById("cx1").value=bx;
+            }
+            else if(from1=="bx"&&to1=="dx"){
+                document.getElementById("bx1").value=dx;
+                document.getElementById("dx1").value=bx;
+            }
+            else if(from1=="cx"&&to1=="ax"){
+                document.getElementById("bx1").value=ax;
+                document.getElementById("ax1").value=bx;
+            }
+            else if(from1=="cx"&&to1=="bx"){
+                document.getElementById("bx1").value=cx;
+                document.getElementById("cx1").value=bx;
+            }
+            else if(from1=="cx"&&to1=="dx"){
+                document.getElementById("cx1").value=dx;
+                document.getElementById("dx1").value=cx;
+            }
+            else if(from1=="dx"&&to1=="ax"){
+                document.getElementById("dx1").value=ax;
+                document.getElementById("ax1").value=dx;
+            }
+            else if(from1=="dx"&&to1=="bx"){
+                document.getElementById("dx1").value=bx;
+                document.getElementById("bx1").value=dx;
+            }
+            else if(from1=="dx"&&to1=="cx"){
+                document.getElementById("dx1").value=cx;
+                document.getElementById("cx1").value=dx;
+            }        
+    }
+    /*
+       function hexdec(){
+            var re = /^[-+]?[0-9A-Fa-f]+\.[0-9A-Fa-f]?$/;
+            var ax = document.getElementById("ax1");
+            var bx = document.getElementById("bx1");
+            var cx = document.getElementById("cx1");
+            var dx = document.getElementById("dx1");
+            if(re.test(ax)==FALSE || re.test(bx)==FALSE || re.test(cx)==FALSE || re.text(dx)==FALSE) {
+                alert('niepoprawna wartosc w rejestrze!');
+            }
+           }
+           */
+    </script>
+    </div>
+</body>
+</html>
